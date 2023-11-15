@@ -1,12 +1,13 @@
 #include "simple_shell.h"
 
 /**
- * __mygetpath - accepts PATH string, splits it to tokens, then concats
+ * __mygetpath -  This accepts PATH string, splits it to tokens, then concats
  * with "/" & cmd
  *@command: command passed from getline in main
  *
  * Return: new_path for use in cmd_read
  */
+
 char *__mygetpath(char *command)
 {
 	char *path = __mystrdup(__mygetenv("PATH"));
@@ -50,4 +51,3 @@ char *__mygetpath(char *command)
 		return (__mystrdup(command));
 	return (NULL);
 }
-

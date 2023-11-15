@@ -1,11 +1,12 @@
 #include "simple_shell.h"
 
 /**
- * __printenv - custom printenv function
+ * __printenv - Custom printenv function
  *
  * Return: 0
  */
 int __printenv(void)
+
 {
 	char *s = environ[0];
 	int i = 0;
@@ -20,14 +21,15 @@ int __printenv(void)
 }
 
 /**
- * __mystrncmp - lexicographically compares not more than count chars
+ * __mystrncmp - Lexicographically compares not more than count chars
  * from two strings and returns an integer based on the result.
  * @s1: first string
  * @s2: second string to compare to first string
  * @n: count of the comparison between s1 and s2
- * Return: <0 if s1 is less than s2, 0 for equal, >0 if s1 is greater than s2
+ * Return: < 0 if s1 is less than s2, 0 for equal, > 0 if s1 is greater than s2
  * Description: Src code file like GNU C library
  */
+
 int __mystrncmp(char *s1, char *s2, int n)
 {
 	char b1, b2;
@@ -44,11 +46,12 @@ int __mystrncmp(char *s1, char *s2, int n)
 }
 
 /**
- * __mygetenv - custom getenv function
- * @var: environment variable
+ * __mygetenv - Custom getenv function
+ * @var: Environment variable
  *
- * Return: suceess (0)
+ * Return: Suceess (0)
  */
+
 char *__mygetenv(char *var)
 {
 	int a = 0;
@@ -60,4 +63,3 @@ char *__mygetenv(char *var)
 	}
 	return (NULL);
 }
-

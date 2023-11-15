@@ -1,7 +1,7 @@
 #include "simple_shell.h"
 
 /**
- **__mystrcat(char *dest, char *src)- a custom function that
+ **__mystrcat(char *dest, char *src)- A custom function that
  * concatenates two strings.
  *@dest: Char input
  *@src: Char input
@@ -26,13 +26,14 @@ char *__mystrcat(char *dest, char *src)
 }
 
 /**
- * __mystrcmp - custom function to compare two strings
+ * __mystrcmp - Custom function to compare two strings
  * @str1: first string
  * @str2: second string to compare to first string
  *
- * Return: <0 if str1 is less than str2, 0 for equal,
- * >0 if str1 is greater than str2
+ * Return: < 0 if str1 is less than str2, 0 for equal,
+ * > 0 if str1 is greater than str2
  */
+
 int __mystrcmp(char *str1, char *str2)
 {
 	while (*str1 == *str2)
@@ -48,12 +49,13 @@ int __mystrcmp(char *str1, char *str2)
 }
 
 /**
- * char *__mystrcpy- Copies a string
- *@dest: The new, coppied string
+ * char *__mystrcpy- This function copies a string
+ *@dest: The newly copied string
  *@src: The original string to copy
  *
  * Return: Always 0.
  */
+
 char *__mystrcpy(char *dest, char *src)
 {
 	int len;
@@ -71,7 +73,7 @@ char *__mystrcpy(char *dest, char *src)
 }
 
 /**
- * __mystrlen(char *s)- a function that returns the length of a string.
+ * __mystrlen(char *s)- This function returns the length of a string.
  *@s: a character
  *
  * Return: Always 0.
@@ -84,16 +86,17 @@ int __mystrlen(char *s)
 	while (s[ab] != '\0')
 	{
 		ab++;
-		}
+	}
 	return (ab);
 }
 
 /**
- * *__mystrdup - copies the input string
+ * *__mystrdup - This function copies the input string
  * @string: input string
  *
  * Return: *ptr to the copied string or  NULL (if Error)
  */
+
 char *__mystrdup(char *string)
 {
 	char *duplicate;

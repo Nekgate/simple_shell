@@ -22,5 +22,9 @@ void print_not_found(char *cmd);
 int call_command(char *cmd_arr[]);
 char *__mygetenv(char *var);
 int __mystrncmp(char *s1, char *s2, int n);
+int handle_command_separator(char *cmd);
+int myunsetenv(char *variable);
+int mysetenv(char *variable, char *value, int overwrite);
+int contains_commands_separator(char *cmd);
+int readcmd_with_separator(char *s, size_t __attribute__((unused))file_stream);
 #endif
-
