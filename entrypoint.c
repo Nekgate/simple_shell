@@ -5,13 +5,8 @@ char *name;
  * main - Print prompt, handle EOF, read file_stream
  * @argc: arg count (not needed)
  * @argv: argv for command
- * @file_stream: getline input
- * @s: string
  * Return: Always 0.
  */
-
-int call_command(char *cmd_arr[]);
-
 int main(int argc, char *argv[])
 {
 	char *str = NULL;
@@ -45,14 +40,12 @@ int main(int argc, char *argv[])
 	str = NULL;
 	return (0);
 }
-
 /**
  * readcmd - This handles command line and tokenizes it
  *@s: string
  *@file_stream: getline input
  * Return: 0
  */
-
 int readcmd(char *s, size_t __attribute__((unused))file_stream)
 {
 	char *tkn = NULL;
@@ -87,6 +80,10 @@ int readcmd(char *s, size_t __attribute__((unused))file_stream)
 			return (-1);
 		}
 	}
+	else if (contains_commands_separator(s))
+	{
+		return (call_command(command_array));
+	}
 	tkn = strtok(s, " "), ab = 0;
 	while (tkn)
 	{
@@ -94,7 +91,6 @@ int readcmd(char *s, size_t __attribute__((unused))file_stream)
 		tkn = strtok(NULL, " ");
 	}
 	command_array[ab] = NULL;
-/* Return status code */
 	return (call_command(command_array));
 }
 /**
@@ -102,7 +98,6 @@ int readcmd(char *s, size_t __attribute__((unused))file_stream)
  *
  * @cmd: a string provided by the stdin
  */
-
 void print_not_found(char *cmd)
 {
 	write(2, name, __mystrlen(name));
@@ -123,8 +118,9 @@ int call_command(char *cmd_arr[])
 	char *command = NULL;
 	pid_t is_child;
 	int stat;
+
 	void print_not_found(char *cmd);
-	
+
 	command = cmd_arr[0];
 	execute_path_string = __mygetpath(command);
 	if (execute_path_string == NULL)
