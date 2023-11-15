@@ -79,7 +79,7 @@ int readcmd_with_separator(char *s, size_t __attribute__((unused))file_stream)
 	/** We tokonize the current command based on spaces **/
 			while (subtkn)
 			{
-				command_array[subab++] = subtkn;
+				subcommand_array[subab++] = subtkn;
 				subtkn = strtok(NULL, " ");
 			}
 		/** This execute each sub-command **/

@@ -9,7 +9,7 @@ char *name;
  * @s: string
  * Return: Always 0.
  */
-void print_not_found(char *cmd);
+
 int call_command(char *cmd_arr[]);
 
 int main(int argc, char *argv[])
@@ -38,7 +38,7 @@ int main(int argc, char *argv[])
 		if (*str == '\0')
 			continue;
 
-		if (readcmd_with_separator(str, fs) == 2)
+		if (readcmd(str, fs) == 2)
 			break;
 	}
 	free(str);
@@ -72,7 +72,7 @@ int readcmd(char *s, size_t __attribute__((unused))file_stream)
 		if (variable != NULL && value != NULL)
 			return (mysetenv(variable, value, 1));
 		{
-			fprintf(stderr, "Usage: setenv Variable Value\n");
+			fprintf(stderr, "Usage: setenv VARIABLE VALUE\n");
 			return (-1);
 		}
 	}
@@ -83,27 +83,19 @@ int readcmd(char *s, size_t __attribute__((unused))file_stream)
 		if (variable != NULL)
 			return (myunsetenv(variable));
 		{
-			fprintf(stderr, "usage: unsetenv Variable\n");
+			fprintf(stderr, "usage: unsetenv VARIABLE\n");
 			return (-1);
 		}
 	}
-
-	else if (contains_commands_separator(s))
+	tkn = strtok(s, " "), ab = 0;
+	while (tkn)
 	{
-		return (call_command(command_array));
+		command_array[ab++] = tkn;
+		tkn = strtok(NULL, " ");
 	}
-	else
-	{
-		tkn = strtok(s, " "), ab = 0;
-		while (tkn)
-		{
-			command_array[ab++] = tkn;
-			tkn = strtok(NULL, " ");
-		}
 	command_array[ab] = NULL;
 /* Return status code */
 	return (call_command(command_array));
-	}
 }
 /**
  * print_not_found - This prints when cmd is not found in path
